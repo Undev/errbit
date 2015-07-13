@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 4.1.10'
 
-gem 'pg'
+gem 'pg' #env ARCHFLAGS="-arch x86_64"
 gem 'counter_culture'
 gem 'after_commit_action'
 gem 'ransack'
@@ -106,9 +106,6 @@ group :development do
   gem 'meta_request'
   gem 'foreman', :require => false
 
-  # Use puma for development
-  gem 'puma', :require => false
-
 end
 
 group :test do
@@ -127,6 +124,7 @@ end
 
 group :heroku, :production do
   gem 'unicorn', :require => false
+  gem 'puma', :require => false
 end
 
 gem 'execjs'
