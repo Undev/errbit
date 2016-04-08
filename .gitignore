@@ -1,3 +1,4 @@
+.env
 .bundle
 db/*.sqlite3
 log/*.log
@@ -5,15 +6,8 @@ tmp/**/*
 tmp/*
 config/config.yml
 config/config.production.yml
-config/config.staging.yml
-config/deploy.rb
-config/deploy
-config/mongoid.yml
 config/newrelic.yml
-config/database.yml
 config/sidekiq.yml
-config/unicorn.rb
-lib/capistrano/tasks
 .rvmrc
 .idea
 *~
@@ -24,4 +18,3 @@ bin
 bundle
 coverage
 *#
-.ruby-version

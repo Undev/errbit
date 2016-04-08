@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~> 4.1.10'
-
+gem 'dotenv-rails'
 gem 'pg'
 gem 'counter_culture'
 gem 'after_commit_action'
@@ -30,10 +30,6 @@ gem 'rails_autolink'
 # It's for internal use only, and we monkeypatch certain methods
 gem 'airbrake', '3.1.15'
 
-# Need for mongodb data import
-gem 'mongo', :require => false
-gem 'bson_ext', :require => false
-
 # Remove / comment out any of the gems below if you want to disable
 # a given issue tracker, notification service, or authentication.
 
@@ -51,10 +47,8 @@ gem 'ruby-fogbugz', :require => 'fogbugz'
 gem 'octokit', '~> 2.0'
 # Gitlab
 gem 'gitlab', '~> 3.0.0'
-
 # Bitbucket Issues
 gem 'bitbucket_rest_api', :require => false
-
 # Jira
 gem 'jira-ruby', :require => 'jira'
 
@@ -91,24 +85,14 @@ gem 'rinku', require: 'rails_rinku'
 group :development, :test do
   gem 'rspec-rails'
   gem 'webmock', :require => false
-  gem 'pry-rails'
-#  gem 'rpm_contrib'
-#  gem 'newrelic_rpm'
+  gem 'byebug'
   gem 'quiet_assets'
 end
 
 group :development do
-  gem 'capistrano', '~> 2.0', :require => false
-
-  # better errors
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
-  gem 'foreman', :require => false
-
-  # Use puma for development
-  gem 'puma', :require => false
-
 end
 
 group :test do
@@ -125,12 +109,11 @@ group :test do
   gem 'rspec-activemodel-mocks'
 end
 
-group :heroku, :production do
-  gem 'unicorn', :require => false
-end
-
+gem 'foreman', :require => false
+gem 'puma', :require => false
 gem 'execjs'
-gem 'therubyracer', :platform => :ruby  # C Ruby (MRI) or Rubinius, but NOT Windows
+# gem 'libv8', '3.16.14.13'
+# gem 'therubyracer', require: false
 gem 'uglifier',     '>= 1.0.3'
 # We can't upgrade because not compatible to jquery >= 1.9.
 # To do that, we need fix the rails.js

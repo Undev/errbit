@@ -1,2 +1,2 @@
-web: bundle exec unicorn -p $PORT -c ./config/unicorn.rb
-worker: bundle exec sidekiq -C ./config/sidekiq.yml
+web: bundle exec puma -e $RAILS_ENV -C config/puma.rb
+worker: bundle exec sidekiq -e $RAILS_ENV -q high,5 -q default,3 -q low,1 -L log/sidekiq.log

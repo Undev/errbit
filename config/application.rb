@@ -6,17 +6,10 @@ require 'digest/md5'
 
 Bundler.require(:default, Rails.env)
 
+Dotenv::Railtie.load
+
 module Errbit
   class Application < Rails::Application
-
-
-
-    #!!!WARNING!!! remove this
-    config.action_controller.permit_all_parameters = true
-
-
-
-
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
